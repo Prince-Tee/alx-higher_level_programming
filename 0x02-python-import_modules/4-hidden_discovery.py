@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-import hidden_4
-i = 0
-if __name__ == '__main__':
-mylist = dir(hidden_4)
-newlist = sorted(mylist)
-while i < len(newlist):
-if newlist[i][0] != '_':
-print(newlist[i])
-i += 1
+if __name__ == "__main__":
+    from hidden_4 import *
+    arr = dir()
+    for i in range(0, len(arr)):
+        if arr[i][0:2] != "__":
+            print("{}".format(arr[i]))
