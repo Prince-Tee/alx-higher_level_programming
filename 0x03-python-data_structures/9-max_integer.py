@@ -8,7 +8,3 @@ def max_integer(my_list=[]):
         if my_list[i] > big:
             big = my_list[i]
     return (big)
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
