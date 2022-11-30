@@ -1,20 +1,26 @@
 #!/usr/bin/node
 
-let biggest = 0;
-let i;
-const arrayNumbers = [];
+const len = process.argv.length;
+const nums = process.argv.slice(2).map(function (n) {
+  return parseInt(n);
+});
+const max = Math.max.apply(Math, nums);
+const min = Math.min.apply(Math, nums);
 
-for (i = 2; i < process.argv.length; i++) {
-  if (Number.isNaN(parseInt(process.argv[i])) === false) {
-    arrayNumbers[i - 2] = parseInt(process.argv[i]);
+if (len > 3) {
+  let i = 0;
+  let n = 0;
+  let secBig = min;
+
+  for (; i < len; ++i) {
+    n = nums[i];
+
+    if (n > secBig && n < max) {
+      secBig = n;
+    }
   }
-}
 
-if (arrayNumbers.length > 1) {
-  biggest = Math.max.apply(null, arrayNumbers);
-  i = arrayNumbers.indexOf(biggest);
-  arrayNumbers[i] = -Infinity;
-  biggest = Math.max.apply(null, arrayNumbers);
+  console.log(secBig);
+} else {
+  console.log(0);
 }
-
-console.log(biggest);
